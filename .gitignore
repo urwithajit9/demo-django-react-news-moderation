@@ -1,0 +1,86 @@
+############################################################
+# GLOBAL OS FILES
+############################################################
+.DS_Store
+Thumbs.db
+desktop.ini
+
+############################################################
+# IDE / EDITOR
+############################################################
+.vscode/
+.idea/
+*.swp
+*.swo
+
+############################################################
+# ENV FILES
+############################################################
+.env
+.env.*
+!.env.example
+
+############################################################
+# ================================
+# DJANGO BACKEND (megaprojectfeedback)
+# ================================
+############################################################
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Django local database
+megaprojectfeedback/db.sqlite3
+*.sqlite3
+
+# Logs
+*.log
+
+# Django collected static files
+staticfiles/
+media/
+
+# Migration cache
+**/migrations/*.pyc
+**/migrations/__pycache__/
+
+# Test / coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+############################################################
+# ================================
+# REACT FRONTEND (react-axios-example)
+# ================================
+############################################################
+
+# Node modules
+react-axios-example/node_modules/
+
+# Build output
+react-axios-example/build/
+react-axios-example/dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# TypeScript cache (if later used)
+*.tsbuildinfo
+
+############################################################
+# TEMP FILES
+############################################################
+*.tmp
+*.bak
+*.old
+*.orig
