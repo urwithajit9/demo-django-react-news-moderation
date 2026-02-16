@@ -1,15 +1,15 @@
+# 📰 Django + React News Moderation Demo
 
-# 📰 Axios + Django REST Demo Application
+A full-stack demo application demonstrating REST API integration between a Django backend and a React frontend using Axios.
 
-A full-stack demo application built with:
+**Tech Stack**
 
-* **Frontend:** React + Axios
-* **Backend:** Django 5 + Django REST Framework
-* **Database:** SQLite (development)
+* Backend: Django 5 + Django REST Framework
+* Frontend: React (bootstrapped with Create React App)
+* HTTP Client: Axios
+* Database: SQLite (development)
 
-This project demonstrates REST API integration between a React frontend and a Django backend, including CRUD operations and structured feedback submission.
-
-> ⚠️ This is a demo application intended for learning and experimentation.
+> ⚠️ This is a demo / learning project intended to demonstrate frontend–backend integration patterns.
 
 ---
 
@@ -18,36 +18,36 @@ This project demonstrates REST API integration between a React frontend and a Dj
 ```
 axios-tutorial/
 │
-├── react-axios-example/        # React frontend
-│   ├── src/
-│   │   ├── components/
-│   │   ├── api.js
-│   │   ├── utils.js
-│   │   └── App.jsx
-│   ├── public/
-│   ├── package.json
-│   └── build/
+├── megaprojectfeedback/        # Django backend
+│   ├── newsfeedback/
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   ├── views.py
+│   │   └── urls.py
+│   ├── manage.py
+│   ├── db.sqlite3
+│   └── requirements.txt
 │
-└── megaprojectfeedback/        # Django backend
-    ├── newsfeedback/
-    │   ├── models.py
-    │   ├── serializers.py
-    │   ├── views.py
-    │   └── urls.py
-    ├── manage.py
-    ├── db.sqlite3
-    └── requirements.txt
+└── react-axios-example/        # React frontend
+    ├── src/
+    │   ├── components/
+    │   ├── api.js
+    │   ├── utils.js
+    │   └── App.jsx
+    ├── public/
+    ├── package.json
+    └── build/
 ```
 
 ---
 
 # 🏗 Backend Overview (Django + DRF)
 
-The backend exposes RESTful endpoints using `ModelViewSet` and `DefaultRouter`.
+The backend exposes RESTful APIs using `ModelViewSet` and `DefaultRouter`.
 
-## 🔹 Models
+## 📌 Models
 
-### News
+### 1️⃣ News
 
 * `title` – Article title
 * `news_url` – Source link
@@ -55,7 +55,7 @@ The backend exposes RESTful endpoints using `ModelViewSet` and `DefaultRouter`.
 * `source_name` – News source
 * `content` – Article content
 
-### NewsFeedback
+### 2️⃣ NewsFeedback
 
 * `title`
 * `publication_date`
@@ -64,11 +64,11 @@ The backend exposes RESTful endpoints using `ModelViewSet` and `DefaultRouter`.
 * `ismegaproject`
 * `contentstatus`
 
-Feedback entries are stored independently as part of the demo design.
+> Feedback entries are stored independently (denormalized by design for demo simplicity).
 
 ---
 
-## 🔹 API Endpoints
+## 🌐 API Endpoints
 
 Base URL:
 
@@ -100,7 +100,7 @@ http://127.0.0.1:8000/api/
 
 ---
 
-## ▶ Running Backend
+# ▶ Running the Backend
 
 ### 1️⃣ Navigate to backend
 
@@ -121,7 +121,7 @@ source venv/bin/activate   # Linux / Mac
 pip install -r requirements.txt
 ```
 
-### 4️⃣ Run migrations
+### 4️⃣ Apply migrations
 
 ```bash
 python manage.py migrate
@@ -133,7 +133,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-Backend will run at:
+Backend runs at:
 
 ```
 http://127.0.0.1:8000/
@@ -145,31 +145,28 @@ http://127.0.0.1:8000/
 
 The frontend:
 
-* Fetches news articles
-* Displays them in cards
+* Fetches news articles from backend
+* Displays them as interactive cards
 * Calculates days since publication
-* Formats source name (title case)
-* Allows users to:
-
-  * Approve
-  * Report
-  * Submit feedback
-* Displays content in modal reader
+* Formats source names
+* Opens article reader modal
+* Allows Approve / Report actions
+* Submits feedback to backend
 
 ---
 
-## 🔹 Key Files
+## 🔑 Key Files
 
-* `api.js` – Axios configuration and API calls
+* `api.js` – Axios configuration & API calls
 * `NewsCard.jsx` – Individual article card
-* `NewsList.jsx` – Renders list of articles
-* `Feedback.jsx` – Feedback submission modal
+* `NewsList.jsx` – List renderer
+* `Feedback.jsx` – Feedback modal
 * `Reader.jsx` – Article content modal
 * `utils.js` – Helper functions
 
 ---
 
-## ▶ Running Frontend
+# ▶ Running the Frontend
 
 ### 1️⃣ Navigate to frontend
 
@@ -189,7 +186,7 @@ npm install
 npm start
 ```
 
-Frontend will run at:
+Frontend runs at:
 
 ```
 http://localhost:3000/
@@ -197,74 +194,75 @@ http://localhost:3000/
 
 ---
 
-# 🔄 How It Works
+# 🔄 Application Flow
 
-1. React calls:
+1. React sends:
 
 ```
 GET /api/news/
 ```
 
-2. News data is rendered in cards.
-3. User clicks Approve or Report.
-4. React sends:
+2. Backend returns JSON.
+3. News rendered as cards.
+4. User clicks Approve / Report.
+5. React sends:
 
 ```
 POST /api/newsfeedback/
 ```
 
-5. Feedback is stored in backend database.
+6. Backend stores feedback in database.
 
 ---
 
 # 🧠 Demo Features
 
-* RESTful CRUD API
+* RESTful CRUD APIs
+* ModelViewSet architecture
+* Axios-based API consumption
 * React functional components + hooks
-* Axios integration
-* Modal-based UI
-* Client-side utility functions
-* Simple SQLite backend
-* Monorepo-style structure
+* Modal-based UI interactions
+* Client-side utilities
+* SQLite-backed persistence
+* Monorepo structure
 
 ---
 
 # ⚙️ Development Notes
 
-* CORS must be enabled in Django for frontend communication.
-* SQLite is used for simplicity.
-* No authentication (demo purpose).
-* Feedback model stores duplicate metadata intentionally (demo design).
+* CORS must be enabled in Django for frontend access.
+* No authentication (intentionally omitted for simplicity).
+* SQLite used for development only.
+* Feedback model intentionally denormalized.
 
 ---
 
-# 🚀 Possible Improvements
+# 🚀 Suggested Improvements
 
-* Add authentication (JWT)
-* Normalize feedback to reference News via ForeignKey
-* Add pagination
-* Add search & filtering
+* Add JWT authentication
+* Convert feedback to ForeignKey relationship
+* Add pagination & search
 * Switch to PostgreSQL
-* Dockerize setup
-* Add deployment config
+* Add Docker support
+* Add production-ready settings
+* Add automated tests
 
 ---
 
-# 📌 Purpose
+# 🎯 Learning Objectives
 
 This project demonstrates:
 
-* Frontend–Backend integration
-* Axios with Django REST Framework
-* RESTful API design
 * Full-stack debugging workflow
-* Monorepo organization
+* React–Django integration
+* RESTful API design
+* State management in React
+* Clean monorepo organization
 
 ---
 
 # 📜 License
 
-Demo / Educational use.
+Educational / Demo Use.
 
----
 
