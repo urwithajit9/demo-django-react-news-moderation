@@ -1,0 +1,101 @@
+.feedbackpopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Ensure this is higher than other elements */
+}
+
+.feedbackoverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1999; /* Ensure this is below the popup but above other content */
+}
+
+.feedbackcontent {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  z-index: 2000;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feedbackcontent h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.feedbackcontent textarea {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.feedbackbuttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.feedbackbuttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feedbackbuttons button:hover {
+  background-color: #0056b3; /* Darker shade for hover effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.feedbackbuttons button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.feedbackbuttons button.submitbutton {
+  background-color: #007bff; /* Primary button color */
+  color: #ffffff;
+}
+
+.feedbackbuttons button.cancelbutton {
+  background-color: #ac3131; /* Secondary button color */
+  color: #ffffff;
+}
+.errormessage {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.megaprojectselector {
+  font-family: Arial, sans-serif;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}

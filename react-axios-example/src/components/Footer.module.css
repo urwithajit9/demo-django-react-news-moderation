@@ -1,0 +1,46 @@
+/* Footer.module.css */
+
+.footer {
+  background-color: #2c3e50; /* Dark background */
+  padding: 20px 0; /* Vertical padding */
+  text-align: center; /* Center align content */
+  color: white; /* White text */
+  font-family: "Arial", sans-serif; /* Font styling */
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo {
+  width: 80px; /* Adjust the size of the logo */
+  margin-bottom: 10px; /* Space between the logo and text */
+}
+
+.footer p {
+  margin: 5px 0; /* Margin between paragraphs */
+  font-size: 14px; /* Smaller text */
+}
+
+.footer a {
+  color: #ecf0f1; /* Light grey text color for links */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Bold text for link */
+}
+
+.footer a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Responsive styling */
+@media (max-width: 600px) {
+  .footer p {
+    font-size: 12px; /* Smaller text on mobile */
+  }
+  .footer-logo {
+    width: 60px; /* Adjust logo size for smaller screens */
+  }
+}

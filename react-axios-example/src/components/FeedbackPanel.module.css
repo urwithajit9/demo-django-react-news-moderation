@@ -1,0 +1,50 @@
+.feedbackpanel {
+  display: flex;
+  justify-content: space-between;
+}
+/* Styling for the report button */
+.buttonReport {
+  color: white;
+  background-color: rgb(114, 12, 72); /* Red background for the report button */
+
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for the report button */
+.buttonReport:hover {
+  background-color: rgb(209, 131, 131); /* Darker red on hover */
+}
+
+/* Styling for the approve button */
+.buttonApprove {
+  color: white;
+  background-color: rgb(
+    21,
+    85,
+    138
+  ); /* Green background for the approve button */
+
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effects */
+  font-weight: bold;
+}
+
+/* Hover effect for the approve button */
+.buttonApprove:hover {
+  background-color: rgb(136, 204, 136); /* Darker green on hover */
+}
+
+/* Disabled button styling */
+button:disabled {
+  background-color: #ccc; /* Gray background for disabled buttons */
+  cursor: not-allowed; /* Cursor shows as not allowed */
+  opacity: 0.6; /* Reduced opacity */
+}
