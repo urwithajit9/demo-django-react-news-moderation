@@ -35,6 +35,9 @@ __pycache__/
 venv/
 env/
 ENV/
+.venv/
+# Specifically ignore backend venv
+megaprojectfeedback/.venv/
 
 # Django local database
 megaprojectfeedback/db.sqlite3
